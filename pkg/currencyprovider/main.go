@@ -20,7 +20,7 @@ type ConversionResult struct {
 
 func Convert(from string, to string, amount float64) (*ConversionResult, error) {
 	baseUrl := os.Getenv("CURRENCY_EXCHANGE_BASEURL")
-	url := fmt.Sprintf("%s/latest/currencies/%s/%s.json", baseUrl, from, to)
+	url := fmt.Sprintf("%s/latest/currencies/%s/%s.min.json", baseUrl, from, to)
 	fmt.Println(url)
 	resp, err := http.Get(url)
 	if err != nil {
