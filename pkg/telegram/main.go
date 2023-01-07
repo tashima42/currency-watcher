@@ -43,6 +43,7 @@ func (t *Telegram) HandleUpdates(logger *zap.Logger) {
 			continue
 		}
 		if !update.Message.IsCommand() { // ignore any non-command Messages
+			t.SendMessage(update.Message.Chat.ID, "All commands need to start with '/'\nTry /"+update.Message.Text)
 			continue
 		}
 		switch update.Message.Command() {
