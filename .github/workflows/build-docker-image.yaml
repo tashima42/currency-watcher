@@ -5,8 +5,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-go@v3
-      - uses: goreleaser/goreleaser-action@v4
         with:
           install-only: true
-      - run: goreleaser build
+      - run: docker build

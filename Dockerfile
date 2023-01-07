@@ -6,4 +6,6 @@ COPY go.mod ./
 COPY go.sum ./
 RUN go mod download
 COPY *.go ./
-RUN goreleaser build
+RUN go build -o dist/currency-watcher
+
+CMD [ "/dist/currency-watcher"]
